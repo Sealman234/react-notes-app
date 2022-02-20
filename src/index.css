@@ -28,6 +28,10 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* 保留換行與連續空格 */
+  white-space: pre-wrap;
+  /* 允許單字斷行 */
+  word-wrap: break-word;
 }
 
 .note.new {

@@ -1,12 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import classes from './NewNote.module.css';
 
 const NewNote = ({ onAddNote }) => {
-  const textareaRef = useRef();
+  const [noteText, setNoteText] = useState('');
+  const characterLimit = 200;
+
+  const changeHandler = (event) => {
+    if (characterLimit - event.target.value.length >= 0) {
+      setNoteText(event.target.value);
+    }
+  };
 
   const saveClickHandler = () => {
-    onAddNote(textareaRef.current.value);
-    textareaRef.current.value = '';
+    if (noteText.trim() === '') return;
+    onAddNote(noteText);
+    setNoteText('');
   };
 
   return (
@@ -16,10 +24,11 @@ const NewNote = ({ onAddNote }) => {
         cols="10"
         rows="8"
         placeholder="Type to add a note..."
-        ref={textareaRef}
-      ></textarea>
+        value={noteText}
+        onChange={changeHandler}
+      />
       <div className="note-footer">
-        <small>200 Remaining</small>
+        <small>{characterLimit - noteText.length} Remaining</small>
         <button className={classes.save} onClick={saveClickHandler}>
           Save
         </button>

@@ -29,26 +29,25 @@ const DUMMY_NOTES = [
 const AllNotes = () => {
   const [notes, setNotes] = useState(DUMMY_NOTES);
 
-  const addNote = (text) => {
+  const addNoteHandler = (text) => {
     const today = new Date();
+    // console.log(today.toLocaleDateString('zh-TW'));
     const year = today.getFullYear();
     const month =
       today.getMonth() + 1 < 10
         ? `0${today.getMonth() + 1}`
         : today.getMonth() + 1;
     const date = today.getDate();
-    const newNotes = [
-      ...notes,
-      {
-        id: nanoid(),
-        text: text,
-        date: `${year}-${month}-${date}`,
-      },
-    ];
+    const newNote = {
+      id: nanoid(),
+      text: text,
+      date: `${year}-${month}-${date}`,
+    };
+    const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
 
-  return <NoteList notes={notes} onAddNote={addNote} />;
+  return <NoteList notes={notes} onAddNote={addNoteHandler} />;
 };
 
 export default AllNotes;
