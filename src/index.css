@@ -43,3 +43,9 @@ code {
   justify-content: space-between;
   align-items: center;
 }
+
+.delete-icon {
+  cursor: pointer;
+  padding: 10px;
+  margin: -10px;
+}

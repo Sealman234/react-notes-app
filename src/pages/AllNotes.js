@@ -47,7 +47,20 @@ const AllNotes = () => {
     setNotes(newNotes);
   };
 
-  return <NoteList notes={notes} onAddNote={addNoteHandler} />;
+  const deleteNoteHandler = (id) => {
+    const newNotes = notes.filter((note) => {
+      return note.id !== id;
+    });
+    setNotes(newNotes);
+  };
+
+  return (
+    <NoteList
+      notes={notes}
+      onAddNote={addNoteHandler}
+      onDeleteNote={deleteNoteHandler}
+    />
+  );
 };
 
 export default AllNotes;
