@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
 import NoteList from '../components/notes/NoteList';
+import { useSelector } from 'react-redux';
 
 const DUMMY_NOTES = [
   {
@@ -28,10 +29,14 @@ const DUMMY_NOTES = [
 
 const AllNotes = () => {
   const [notes, setNotes] = useState(DUMMY_NOTES);
+  const searchInput = useSelector((state) => state.search.searchInput);
+
+  const filteredNotes = notes.filter((note) => {
+    return note.text.toLowerCase().includes(searchInput.toLowerCase());
+  });
 
   const addNoteHandler = (text) => {
     const today = new Date();
-    // console.log(today.toLocaleDateString('zh-TW'));
     const year = today.getFullYear();
     const month =
       today.getMonth() + 1 < 10
@@ -48,15 +53,13 @@ const AllNotes = () => {
   };
 
   const deleteNoteHandler = (id) => {
-    const newNotes = notes.filter((note) => {
-      return note.id !== id;
-    });
+    const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   };
 
   return (
     <NoteList
-      notes={notes}
+      notes={filteredNotes}
       onAddNote={addNoteHandler}
       onDeleteNote={deleteNoteHandler}
     />

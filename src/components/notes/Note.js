@@ -15,9 +15,10 @@ const Note = ({ id, text, date, onDeleteNote }) => {
       <div className="note-footer">
         <small>{localeDate}</small>
         <MdDeleteForever
-          size="1.3em"
+          size="1.3rem"
           className="delete-icon"
           onClick={deleteClickHandler}
+          title="Delete"
         />
       </div>
     </div>
