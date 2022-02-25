@@ -1,4 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "cSpell.words": ["reduxjs", "toolset"]
+  "cSpell.words": ["reduxjs", "toolset"],
+  "css.lint.unknownAtRules": "ignore"
 }
