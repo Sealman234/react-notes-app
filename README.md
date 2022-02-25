@@ -2,13 +2,14 @@
 
 ## Features
 
-- Note list
-- Add new notes
-- Note character count
-- Delete a note
-- Search for a note
-- Toggle dark mode
-- Save to local storage
+- [x] Note list
+- [x] Add new notes
+- [x] Note character count
+- [x] Delete a note
+- [x] Search for a note
+- [x] Toggle dark mode
+- [x] Save dark mode to local storage
+- [ ] Save notes data to FireBase
 
 ## Tech Stack
 
@@ -18,3 +19,4 @@
 - [React Router v6](https://github.com/remix-run/react-router) - Declarative routing for React
 - [Redux](https://github.com/reduxjs/redux) - Predictable state container for JavaScript apps
 - [Redux Toolkit](https://github.com/reduxjs/redux-toolkit) - The official, opinionated, batteries-included toolset for efficient Redux development
+- [Firebase](https://firebase.google.com/) - Helps you build and run successful apps
