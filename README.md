@@ -9,7 +9,9 @@
 - [x] Search for a note
 - [x] Toggle dark mode
 - [x] Save dark mode to local storage
-- [ ] Save notes data to FireBase
+- [x] Move notes data to FireBase
+- [ ] Handling the loading state
+- [ ] Handling Errors
 
 ## Tech Stack
 
@@ -20,3 +22,4 @@
 - [Redux](https://github.com/reduxjs/redux) - Predictable state container for JavaScript apps
 - [Redux Toolkit](https://github.com/reduxjs/redux-toolkit) - The official, opinionated, batteries-included toolset for efficient Redux development
 - [Firebase](https://firebase.google.com/) - Helps you build and run successful apps
+- [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
