@@ -13,6 +13,7 @@
 - [x] Moving asynchronous code from components to action creator thunk
 - [x] Handling the loading state
 - [x] Handling errors
+- [x] Upload production code to server
 
 ## Tech Stack
 
