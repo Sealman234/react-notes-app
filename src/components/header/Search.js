@@ -1,17 +1,17 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { MdSearch } from 'react-icons/md';
-import { searchActions } from '../../store/search';
+
+import { noteActions } from '../../store/note-slice';
 
 import classes from './Search.module.css';
 
 const Search = () => {
   const dispatch = useDispatch();
-  const searchInput = useSelector((state) => state.search.searchInput);
+  const searchInput = useSelector((state) => state.note.searchInput);
 
   const noteSearchHandler = (event) => {
-    dispatch(searchActions.typing(event.target.value));
+    dispatch(noteActions.searching(event.target.value));
   };
 
   return (

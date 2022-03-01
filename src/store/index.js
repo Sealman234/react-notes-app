@@ -1,9 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-import searchReducer from './search';
+import noteSlice from './note-slice';
 
 const store = configureStore({
-  reducer: { search: searchReducer },
+  reducer: { note: noteSlice.reducer },
 });
 
 export default store;

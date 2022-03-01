@@ -1,37 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import NoteList from '../components/notes/NoteList';
 
-import { apiAddNote, apiGetNotes, apiUpdateNotes } from '../api';
+import {
+  addNewNote,
+  fetchNotesData,
+  replaceNotesData,
+} from '../store/note-actions';
 
 const AllNotes = () => {
-  const [notes, setNotes] = useState([]);
-  const searchInput = useSelector((state) => state.search.searchInput);
+  const dispatch = useDispatch();
+  const notes = useSelector((state) => state.note.notes);
+  const searchInput = useSelector((state) => state.note.searchInput);
 
   useEffect(() => {
-    const getNotes = async () => {
-      const response = await apiGetNotes();
-      const loadedData = [];
-      for (const key in response.data) {
-        loadedData.push({
-          id: key,
-          text: response.data[key].text,
-          date: response.data[key].date,
-        });
-      }
-      setNotes(loadedData);
-    };
-
-    getNotes();
-  }, []);
+    dispatch(fetchNotesData());
+  }, [dispatch]);
 
   const filteredNotes = notes.filter((note) => {
     return note.text.toLowerCase().includes(searchInput.toLowerCase());
   });
 
   const addNoteHandler = async (text) => {
-    // Add a new note
     const today = new Date();
     const year = today.getFullYear();
     const month =
@@ -43,48 +34,14 @@ const AllNotes = () => {
       text: text,
       date: `${year}-${month}-${date}`,
     };
-    await apiAddNote(newNote);
-
-    // Set note list
-    const getNotes = async () => {
-      const response = await apiGetNotes();
-      const loadedData = [];
-      for (const key in response.data) {
-        loadedData.push({
-          id: key,
-          text: response.data[key].text,
-          date: response.data[key].date,
-        });
-      }
-      setNotes(loadedData);
-    };
-    getNotes();
+    await dispatch(addNewNote(newNote));
+    dispatch(fetchNotesData());
   };
 
   const deleteNoteHandler = async (id) => {
     const newNotes = notes.filter((note) => note.id !== id);
-
-    // Update notes
-    const updateNotes = async (data) => {
-      const response = await apiUpdateNotes(data);
-      console.log(response);
-    };
-    await updateNotes(newNotes);
-
-    // Get notes
-    const getNotes = async () => {
-      const response = await apiGetNotes();
-      const loadedData = [];
-      for (const key in response.data) {
-        loadedData.push({
-          id: key,
-          text: response.data[key].text,
-          date: response.data[key].date,
-        });
-      }
-      setNotes(loadedData);
-    };
-    await getNotes();
+    await dispatch(replaceNotesData(newNotes));
+    dispatch(fetchNotesData());
   };
 
   return (

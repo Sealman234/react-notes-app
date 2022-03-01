@@ -3,15 +3,16 @@
 ## Features
 
 - [x] Note list
-- [x] Add new notes
+- [x] Adding new notes
 - [x] Note character count
-- [x] Delete a note
-- [x] Search for a note
-- [x] Toggle dark mode
-- [x] Save dark mode to local storage
-- [x] Move notes data to FireBase
+- [x] Deleting a note
+- [x] Searching for a note
+- [x] Toggling dark mode
+- [x] Saving dark mode to local storage
+- [x] Moving notes data to FireBase
+- [x] Moving asynchronous code from components to action creator thunk
 - [ ] Handling the loading state
-- [ ] Handling Errors
+- [ ] Handling errors
 
 ## Tech Stack
 
@@ -21,5 +22,6 @@
 - [React Router v6](https://github.com/remix-run/react-router) - Declarative routing for React
 - [Redux](https://github.com/reduxjs/redux) - Predictable state container for JavaScript apps
 - [Redux Toolkit](https://github.com/reduxjs/redux-toolkit) - The official, opinionated, batteries-included toolset for efficient Redux development
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk) - Thunk middleware for Redux
 - [Firebase](https://firebase.google.com/) - Helps you build and run successful apps
 - [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
