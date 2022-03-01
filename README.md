@@ -14,6 +14,16 @@
 - [x] Handling the loading state
 - [x] Handling errors
 - [x] Upload production code to server
+- [ ] Authentication, Tokens, Login, Logout
+- [ ] CRA TypeScript
+- [ ] Material UI, Emotion
+- [ ] 彈窗元件
+- [ ] 表單輸入元件
+- [ ] 編輯功能
+- [ ] 標籤功能
+- [ ] 拖移排序功能
+- [ ] Animating
+- [ ] Unit Tests
 
 ## Tech Stack
 
