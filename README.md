@@ -11,8 +11,8 @@
 - [x] Saving dark mode to local storage
 - [x] Moving notes data to FireBase
 - [x] Moving asynchronous code from components to action creator thunk
-- [ ] Handling the loading state
-- [ ] Handling errors
+- [x] Handling the loading state
+- [x] Handling errors
 
 ## Tech Stack
 
