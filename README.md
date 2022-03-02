@@ -2,7 +2,7 @@
 
 ## Features
 
-- [x] Note list
+- [x] Show notes in multi-column view (Grid View)
 - [x] Adding new notes
 - [x] Note character count
 - [x] Deleting a note
@@ -14,16 +14,14 @@
 - [x] Handling the loading state
 - [x] Handling errors
 - [x] Upload production code to server
-- [ ] Authentication, Tokens, Login, Logout
+- [ ] Editing a note
+- [ ] Set notes with options for time or location
+- [ ] Notes can be categorized using labels, with a list of labels in the app's navigation bar
+- [ ] Pinning notes
+- [ ] Draggable notes
 - [ ] CRA TypeScript
 - [ ] Material UI, Emotion
-- [ ] 彈窗元件
-- [ ] 表單輸入元件
-- [ ] 編輯功能
-- [ ] 標籤功能
-- [ ] 拖移排序功能
-- [ ] Animating
-- [ ] Unit Tests
+- [ ] Authentication, Tokens, Login, Logout
 
 ## Tech Stack
 
