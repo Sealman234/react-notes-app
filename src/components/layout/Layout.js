@@ -1,6 +1,27 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import Header from './Header';
-import classes from './Layout.module.css';
+import styled from 'styled-components';
+
+import NavigationBar from './NavigationBar';
+
+const Container = styled.main`
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+  margin-top: 32px;
+  min-height: 100vh;
+`;
+
+const DarkMode = styled.div`
+  transition: background-color 0.3s;
+
+  &.dark-mode {
+    background-color: #15202b;
+
+    h1 {
+      color: #fff;
+    }
+  }
+`;
 
 const Layout = (props) => {
   const [darkMode, setDarkMode] = useState(false);
@@ -23,10 +44,10 @@ const Layout = (props) => {
 
   return (
     <Fragment>
-      <div className={`${darkMode ? 'dark-mode' : ''}`}>
-        <Header onToggleDarkMode={toggleDarkModeHandler} />
-        <main className={classes.container}>{props.children}</main>
-      </div>
+      <DarkMode className={darkMode && 'dark-mode'}>
+        <NavigationBar onToggleDarkMode={toggleDarkModeHandler} />
+        <Container>{props.children}</Container>
+      </DarkMode>
     </Fragment>
   );
 };

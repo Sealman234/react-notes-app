@@ -14,14 +14,6 @@ code {
     monospace;
 }
 
-.dark-mode {
-  background-color: #15202b;
-}
-
-.dark-mode h1 {
-  color: #fff;
-}
-
 .centered {
   margin: 3rem auto;
   text-align: center;
@@ -52,10 +44,4 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.delete-icon {
-  cursor: pointer;
-  padding: 10px;
-  margin: -10px;
 }

@@ -1,13 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Note from './Note';
 import NewNote from './NewNote';
 
-import classes from './NoteList.module.css';
+const List = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+`;
 
 const NoteList = ({ notes, onAddNote, onDeleteNote }) => {
   return (
-    <div className={classes.noteList}>
+    <List>
       <NewNote onAddNote={onAddNote} />
       {notes.map((note) => (
         <Note
@@ -18,7 +23,7 @@ const NoteList = ({ notes, onAddNote, onDeleteNote }) => {
           onDeleteNote={onDeleteNote}
         />
       ))}
-    </div>
+    </List>
   );
 };
 

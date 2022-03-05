@@ -1,5 +1,27 @@
 import React, { useState } from 'react';
-import classes from './NewNote.module.css';
+import styled from 'styled-components';
+
+const TextArea = styled.textarea`
+  border: none;
+  resize: none;
+  background-color: #67d7cc;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const SaveButton = styled.button`
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+
+  &:hover {
+    background-color: #ededed;
+    cursor: pointer;
+  }
+`;
 
 const NewNote = ({ onAddNote }) => {
   const [noteText, setNoteText] = useState('');
@@ -19,8 +41,7 @@ const NewNote = ({ onAddNote }) => {
 
   return (
     <div className="note new">
-      <textarea
-        className={classes.textarea}
+      <TextArea
         cols="10"
         rows="8"
         placeholder="Type to add a note..."
@@ -29,9 +50,7 @@ const NewNote = ({ onAddNote }) => {
       />
       <div className="note-footer">
         <small>{characterLimit - noteText.length} Remaining</small>
-        <button className={classes.save} onClick={saveClickHandler}>
-          Save
-        </button>
+        <SaveButton onClick={saveClickHandler}>Save</SaveButton>
       </div>
     </div>
   );

@@ -1,5 +1,12 @@
 import React from 'react';
 import { MdDeleteForever } from 'react-icons/md';
+import styled from 'styled-components';
+
+const DeleteIcon = styled(MdDeleteForever)`
+  cursor: pointer;
+  padding: 10px;
+  margin: -10px;
+`;
 
 const Note = ({ id, text, date, onDeleteNote }) => {
   const transformedDate = date.split('-');
@@ -14,12 +21,7 @@ const Note = ({ id, text, date, onDeleteNote }) => {
       <span>{text}</span>
       <div className="note-footer">
         <small>{localeDate}</small>
-        <MdDeleteForever
-          size="1.3rem"
-          className="delete-icon"
-          onClick={deleteClickHandler}
-          title="Delete"
-        />
+        <DeleteIcon size="1.3rem" onClick={deleteClickHandler} title="Delete" />
       </div>
     </div>
   );
