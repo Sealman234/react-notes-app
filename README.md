@@ -10,8 +10,8 @@
 - [x] Toggling dark mode
 - [x] Saving dark mode to local storage
 - [x] Firebase Realtime Database
-- [x] Handling the loading state
 - [x] Handling errors
+- [x] Show loading modal with Portals
 - [ ] Editing a note
 - [ ] Notes can be categorized using labels
 - [ ] Pinning notes

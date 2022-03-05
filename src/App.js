@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Layout from './components/layout/Layout';
-import LoadingSpinner from './components/UI/LoadingSpinner';
+import LoadingModal from './components/UI/LoadingModal';
 
 const AllNotes = React.lazy(() => import('./pages/AllNotes'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
@@ -10,13 +10,7 @@ const NotFound = React.lazy(() => import('./pages/NotFound'));
 const App = () => {
   return (
     <Layout>
-      <Suspense
-        fallback={
-          <div className="centered">
-            <LoadingSpinner />
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingModal />}>
         <Routes>
           <Route path="/" element={<Navigate to="/notes" />} />
           <Route path="/notes" element={<AllNotes />} />

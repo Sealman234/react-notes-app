@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import NoteList from '../components/notes/NoteList';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
 
 import {
   addNewNote,
@@ -11,7 +10,6 @@ import {
 } from '../store/note-actions';
 
 const AllNotes = () => {
-  const showLoading = useSelector((state) => state.ui.isLoading);
   const dispatch = useDispatch();
   const notes = useSelector((state) => state.note.notes);
   const searchInput = useSelector((state) => state.note.searchInput);
@@ -46,11 +44,6 @@ const AllNotes = () => {
 
   return (
     <Fragment>
-      {showLoading && (
-        <div className="centered">
-          <LoadingSpinner />
-        </div>
-      )}
       <NoteList
         notes={filteredNotes}
         onAddNote={addNoteHandler}

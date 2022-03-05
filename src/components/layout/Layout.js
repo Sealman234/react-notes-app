@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
+import LoadingModal from '../UI/LoadingModal';
 import NavigationBar from './NavigationBar';
 
 const Container = styled.main`
@@ -8,7 +10,6 @@ const Container = styled.main`
   margin: 0 auto;
   padding: 0 15px;
   margin-top: 32px;
-  min-height: 100vh;
 `;
 
 const DarkMode = styled.div`
@@ -24,6 +25,7 @@ const DarkMode = styled.div`
 `;
 
 const Layout = (props) => {
+  const showLoading = useSelector((state) => state.ui.isLoading);
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkModeHandler = () => {
@@ -45,6 +47,7 @@ const Layout = (props) => {
   return (
     <Fragment>
       <DarkMode className={darkMode && 'dark-mode'}>
+        {showLoading && <LoadingModal />}
         <NavigationBar onToggleDarkMode={toggleDarkModeHandler} />
         <Container>{props.children}</Container>
       </DarkMode>
