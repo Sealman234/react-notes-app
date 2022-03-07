@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Textarea = styled.textarea`
@@ -11,14 +11,19 @@ const Textarea = styled.textarea`
   font-weight: ${(props) => props.type === 'title' && 'bold'};
   border: none;
   resize: none;
+
   &:focus {
     outline: none;
   }
 `;
 
-const AutoResizeTextarea = ({ placeholder, type, value, onChange }) => {
-  const textareaRef = useRef();
-
+const AutoResizeTextarea = ({
+  textareaRef,
+  placeholder,
+  type,
+  value,
+  onChange,
+}) => {
   const resizeHandler = () => {
     textareaRef.current.style.height = type === 'title' ? '2.5rem' : '2.25rem';
     const scHeight = textareaRef.current.scrollHeight;

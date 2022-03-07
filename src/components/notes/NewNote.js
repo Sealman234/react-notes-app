@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import AutoResizeTextarea from '../UI/AutoResizeTextarea';
@@ -6,7 +6,7 @@ import AutoResizeTextarea from '../UI/AutoResizeTextarea';
 const StyledNewNote = styled.div`
   width: 100%;
   max-width: 600px;
-  margin: 32px auto 16px auto;
+  margin: 16px auto;
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
@@ -36,12 +36,13 @@ const SaveButton = styled.button`
 const NewNote = ({ onAddNote }) => {
   const [titleText, setTitleText] = useState('');
   const [descriptionText, setDescriptionText] = useState('');
-  const characterLimit = 200;
+  const titleRef = useRef();
+  const descriptionRef = useRef();
 
+  const characterLimit = 200;
   const titleChangeHandler = (event) => {
     setTitleText(event.target.value);
   };
-
   const descriptionChangeHandler = (event) => {
     if (characterLimit - event.target.value.length >= 0) {
       setDescriptionText(event.target.value);
@@ -53,18 +54,22 @@ const NewNote = ({ onAddNote }) => {
     onAddNote(titleText, descriptionText);
     setTitleText('');
     setDescriptionText('');
+    titleRef.current.style.height = '2.5rem';
+    descriptionRef.current.style.height = '2.25rem';
   };
 
   return (
     <StyledNewNote>
       <div>
         <AutoResizeTextarea
+          textareaRef={titleRef}
           placeholder="標題"
           type="title"
           value={titleText}
           onChange={titleChangeHandler}
         />
         <AutoResizeTextarea
+          textareaRef={descriptionRef}
           placeholder="新增記事..."
           type="description"
           value={descriptionText}
