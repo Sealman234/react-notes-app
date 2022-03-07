@@ -28,7 +28,7 @@ const SearchBar = styled.div`
 `;
 
 const SearchIcon = styled(MdSearch)`
-  padding: 8px;
+  margin: 8px;
 `;
 
 const Search = () => {

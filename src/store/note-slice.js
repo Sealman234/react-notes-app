@@ -14,7 +14,8 @@ const noteSlice = createSlice({
       for (const key in action.payload) {
         loadedData.push({
           id: key,
-          text: action.payload[key].text,
+          title: action.payload[key].title,
+          description: action.payload[key].description,
           date: action.payload[key].date,
         });
       }

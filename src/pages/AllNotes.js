@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import NewNote from '../components/notes/NewNote';
 import NoteList from '../components/notes/NoteList';
 
 import {
@@ -19,10 +20,13 @@ const AllNotes = () => {
   }, [dispatch]);
 
   const filteredNotes = notes.filter((note) => {
-    return note.text.toLowerCase().includes(searchInput.toLowerCase());
+    return (
+      note.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+      note.description.toLowerCase().includes(searchInput.toLowerCase())
+    );
   });
 
-  const addNoteHandler = async (text) => {
+  const addNoteHandler = async (titleText, descriptionText) => {
     const today = new Date();
     const year = today.getFullYear();
     const month =
@@ -31,7 +35,8 @@ const AllNotes = () => {
         : today.getMonth() + 1;
     const date = today.getDate();
     const newNote = {
-      text: text,
+      title: titleText,
+      description: descriptionText,
       date: `${year}-${month}-${date}`,
     };
     dispatch(addNewNote(newNote));
@@ -44,11 +49,8 @@ const AllNotes = () => {
 
   return (
     <Fragment>
-      <NoteList
-        notes={filteredNotes}
-        onAddNote={addNoteHandler}
-        onDeleteNote={deleteNoteHandler}
-      />
+      <NewNote onAddNote={addNoteHandler} />
+      <NoteList notes={filteredNotes} onDeleteNote={deleteNoteHandler} />
     </Fragment>
   );
 };

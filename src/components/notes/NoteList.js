@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Note from './Note';
-import NewNote from './NewNote';
 
 const List = styled.div`
   display: grid;
@@ -10,15 +9,15 @@ const List = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 `;
 
-const NoteList = ({ notes, onAddNote, onDeleteNote }) => {
+const NoteList = ({ notes, onDeleteNote }) => {
   return (
     <List>
-      <NewNote onAddNote={onAddNote} />
       {notes.map((note) => (
         <Note
           key={note.id}
           id={note.id}
-          text={note.text}
+          title={note.title}
+          description={note.description}
           date={note.date}
           onDeleteNote={onDeleteNote}
         />

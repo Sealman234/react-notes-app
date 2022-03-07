@@ -13,6 +13,7 @@ const Container = styled.main`
 `;
 
 const DarkMode = styled.div`
+  height: 100vh;
   transition: background-color 0.3s;
 
   &.dark-mode {

@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const TextArea = styled.textarea`
-  border: none;
-  resize: none;
-  background-color: #67d7cc;
+import AutoResizeTextarea from '../UI/AutoResizeTextarea';
 
-  &:focus {
-    outline: none;
-  }
+const StyledNewNote = styled.div`
+  width: 100%;
+  max-width: 600px;
+  margin: 32px auto 16px auto;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+  padding: 0.5rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* 保留換行與連續空格 */
+  white-space: pre-wrap;
+  /* 允許單字斷行 */
+  word-wrap: break-word;
 `;
 
 const SaveButton = styled.button`
@@ -24,35 +34,48 @@ const SaveButton = styled.button`
 `;
 
 const NewNote = ({ onAddNote }) => {
-  const [noteText, setNoteText] = useState('');
+  const [titleText, setTitleText] = useState('');
+  const [descriptionText, setDescriptionText] = useState('');
   const characterLimit = 200;
 
-  const changeHandler = (event) => {
+  const titleChangeHandler = (event) => {
+    setTitleText(event.target.value);
+  };
+
+  const descriptionChangeHandler = (event) => {
     if (characterLimit - event.target.value.length >= 0) {
-      setNoteText(event.target.value);
+      setDescriptionText(event.target.value);
     }
   };
 
   const saveClickHandler = () => {
-    if (noteText.trim() === '') return;
-    onAddNote(noteText);
-    setNoteText('');
+    if (titleText.trim() === '' && descriptionText.trim() === '') return;
+    onAddNote(titleText, descriptionText);
+    setTitleText('');
+    setDescriptionText('');
   };
 
   return (
-    <div className="note new">
-      <TextArea
-        cols="10"
-        rows="8"
-        placeholder="Type to add a note..."
-        value={noteText}
-        onChange={changeHandler}
-      />
+    <StyledNewNote>
+      <div>
+        <AutoResizeTextarea
+          placeholder="標題"
+          type="title"
+          value={titleText}
+          onChange={titleChangeHandler}
+        />
+        <AutoResizeTextarea
+          placeholder="新增記事..."
+          type="description"
+          value={descriptionText}
+          onChange={descriptionChangeHandler}
+        />
+      </div>
       <div className="note-footer">
-        <small>{characterLimit - noteText.length} Remaining</small>
+        <small>{characterLimit - descriptionText.length} Remaining</small>
         <SaveButton onClick={saveClickHandler}>Save</SaveButton>
       </div>
-    </div>
+    </StyledNewNote>
   );
 };
 
