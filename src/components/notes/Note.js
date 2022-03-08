@@ -1,8 +1,9 @@
 import React from 'react';
-import { MdDeleteForever } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { deleteNote, editNote } from '../../store/note-actions';
+import { MdDeleteForever } from 'react-icons/md';
+
+import { deleteNote } from '../../store/note-actions';
 
 const StyledNote = styled.div`
   background-color: #fff;
@@ -46,34 +47,29 @@ const DeleteButton = styled.button`
   }
 `;
 
-const Note = ({ id, title, description, date }) => {
+const Note = ({ id, title, description, date, onOpenModal }) => {
   const dispatch = useDispatch();
 
   const transformedDate = date.split('-');
   const localeDate = `${transformedDate[0]}年${transformedDate[1]}月${transformedDate[2]}日`;
 
-  const deleteClickHandler = () => {
+  const deleteClickHandler = (event) => {
+    event.stopPropagation();
     dispatch(deleteNote(id));
   };
 
-  const editClickHandler = () => {
-    const data = {
-      title: title + 'TESTING',
-      description,
-      date,
-    };
-    console.log(id, data);
-    dispatch(editNote(id, data));
+  const modalOpenHandler = (event) => {
+    onOpenModal({ id, title, description, date });
   };
 
   return (
-    <StyledNote>
+    <StyledNote onClick={modalOpenHandler}>
       <div>
         <div className="title">{title}</div>
         <div className="description">{description}</div>
       </div>
       <div className="note-footer">
-        <small>{localeDate}</small>
+        <small>建立時間：{localeDate}</small>
         <DeleteButton onClick={deleteClickHandler}>
           <MdDeleteForever size="1.3rem" title="Delete" />
         </DeleteButton>

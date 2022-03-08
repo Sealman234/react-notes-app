@@ -10,11 +10,12 @@ const List = styled.div`
   align-items: start;
 `;
 
-const NoteList = ({ notes }) => {
+const NoteList = ({ notes, onOpenModal }) => {
   return (
     <List>
       {notes.map((note) => (
         <Note
+          onOpenModal={onOpenModal}
           key={note.id}
           id={note.id}
           title={note.title}

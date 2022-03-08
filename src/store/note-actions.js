@@ -75,7 +75,6 @@ export const editNote = (id, data) => {
 
     const editData = async () => {
       const response = await apiPatchNote(id, data);
-      console.log(response);
       if (response.status !== 200) {
         throw new Error('Editing note data failed.');
       }

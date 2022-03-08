@@ -12,7 +12,7 @@
 - [x] Firebase Realtime Database
 - [x] Handling errors
 - [x] Show loading modal with Portals
-- [ ] Editing a note
+- [x] Editing a note
 - [ ] Notes can be categorized using labels
 - [ ] Pinning notes
 - [ ] Draggable notes

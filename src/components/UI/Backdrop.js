@@ -9,8 +9,8 @@ const StyledBackdrop = styled.div`
   opacity: 0.6;
 `;
 
-const Backdrop = () => {
-  return <StyledBackdrop />;
+const Backdrop = ({ onClick }) => {
+  return <StyledBackdrop onClick={onClick} />;
 };
 
 export default Backdrop;
