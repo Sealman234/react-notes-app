@@ -9,7 +9,7 @@ const noteSlice = createSlice({
   name: 'note',
   initialState: initialNoteState,
   reducers: {
-    replaceNotes(state, action) {
+    SET_NOTES(state, action) {
       const loadedData = [];
       for (const key in action.payload) {
         loadedData.push({
@@ -21,7 +21,7 @@ const noteSlice = createSlice({
       }
       state.notes = loadedData;
     },
-    searching(state, action) {
+    SEARCHING(state, action) {
       state.searchInput = action.payload;
     },
   },

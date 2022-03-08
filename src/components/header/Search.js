@@ -36,7 +36,7 @@ const Search = () => {
   const searchInput = useSelector((state) => state.note.searchInput);
 
   const noteSearchHandler = (event) => {
-    dispatch(noteActions.searching(event.target.value));
+    dispatch(noteActions.SEARCHING(event.target.value));
   };
 
   return (

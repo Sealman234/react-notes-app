@@ -6,4 +6,6 @@ const notesInstance = axios.create({
 
 export const apiGetNotes = () => notesInstance.get('/notes.json');
 export const apiAddNote = (data) => notesInstance.post('/notes.json', data);
-export const apiUpdateNotes = (data) => notesInstance.put('/notes.json', data);
+export const apiDeleteNote = (id) => notesInstance.delete(`/notes/${id}.json`);
+export const apiPatchNote = (id, data) =>
+  notesInstance.patch(`/notes/${id}.json`, data);

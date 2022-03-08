@@ -4,11 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NewNote from '../components/notes/NewNote';
 import NoteList from '../components/notes/NoteList';
 
-import {
-  addNewNote,
-  fetchNotesData,
-  replaceNotesData,
-} from '../store/note-actions';
+import { addNewNote, setNotes } from '../store/note-actions';
 
 const AllNotes = () => {
   const dispatch = useDispatch();
@@ -16,7 +12,7 @@ const AllNotes = () => {
   const searchInput = useSelector((state) => state.note.searchInput);
 
   useEffect(() => {
-    dispatch(fetchNotesData());
+    dispatch(setNotes());
   }, [dispatch]);
 
   const filteredNotes = notes.filter((note) => {
@@ -42,15 +38,10 @@ const AllNotes = () => {
     dispatch(addNewNote(newNote));
   };
 
-  const deleteNoteHandler = async (id) => {
-    const newNotes = notes.filter((note) => note.id !== id);
-    dispatch(replaceNotesData(newNotes));
-  };
-
   return (
     <Fragment>
       <NewNote onAddNote={addNoteHandler} />
-      <NoteList notes={filteredNotes} onDeleteNote={deleteNoteHandler} />
+      <NoteList notes={filteredNotes} />
     </Fragment>
   );
 };

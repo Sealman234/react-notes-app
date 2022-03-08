@@ -8,7 +8,7 @@ const uiSlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
-    showLoading(state, action) {
+    SHOW_LOADING(state, action) {
       state.isLoading = action.payload;
     },
   },

@@ -10,7 +10,7 @@ const List = styled.div`
   align-items: start;
 `;
 
-const NoteList = ({ notes, onDeleteNote }) => {
+const NoteList = ({ notes }) => {
   return (
     <List>
       {notes.map((note) => (
@@ -20,7 +20,6 @@ const NoteList = ({ notes, onDeleteNote }) => {
           title={note.title}
           description={note.description}
           date={note.date}
-          onDeleteNote={onDeleteNote}
         />
       ))}
     </List>

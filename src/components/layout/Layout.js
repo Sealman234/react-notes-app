@@ -25,7 +25,7 @@ const DarkMode = styled.div`
 `;
 
 const Layout = (props) => {
-  const showLoading = useSelector((state) => state.ui.isLoading);
+  const selectLoading = useSelector((state) => state.ui.isLoading);
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkModeHandler = () => {
@@ -47,7 +47,7 @@ const Layout = (props) => {
   return (
     <Fragment>
       <DarkMode className={darkMode && 'dark-mode'}>
-        {showLoading && <LoadingModal />}
+        {selectLoading && <LoadingModal />}
         <NavigationBar onToggleDarkMode={toggleDarkModeHandler} />
         <Container>{props.children}</Container>
       </DarkMode>

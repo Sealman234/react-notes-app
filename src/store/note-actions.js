@@ -1,10 +1,10 @@
-import { apiAddNote, apiGetNotes, apiUpdateNotes } from '../api';
+import { apiAddNote, apiDeleteNote, apiGetNotes, apiPatchNote } from '../api';
 import { noteActions } from './note-slice';
 import { uiActions } from './ui-slice';
 
-export const fetchNotesData = () => {
+export const setNotes = () => {
   return async (dispatch) => {
-    dispatch(uiActions.showLoading(true));
+    dispatch(uiActions.SHOW_LOADING(true));
 
     const fetchData = async () => {
       const response = await apiGetNotes();
@@ -16,20 +16,20 @@ export const fetchNotesData = () => {
 
     try {
       const noteData = await fetchData();
-      dispatch(noteActions.replaceNotes(noteData));
-      dispatch(uiActions.showLoading(false));
+      dispatch(noteActions.SET_NOTES(noteData));
+      dispatch(uiActions.SHOW_LOADING(false));
     } catch (error) {
       console.log(error);
-      dispatch(uiActions.showLoading(false));
+      dispatch(uiActions.SHOW_LOADING(false));
     }
   };
 };
 
 export const addNewNote = (newNote) => {
   return async (dispatch) => {
-    dispatch(uiActions.showLoading(true));
+    dispatch(uiActions.SHOW_LOADING(true));
 
-    const addNote = async () => {
+    const addData = async () => {
       const response = await apiAddNote(newNote);
       if (response.status !== 200) {
         throw new Error('Sending note data failed.');
@@ -37,34 +37,57 @@ export const addNewNote = (newNote) => {
     };
 
     try {
-      await addNote();
-      await dispatch(fetchNotesData());
-      dispatch(uiActions.showLoading(false));
+      await addData();
+      await dispatch(setNotes());
+      dispatch(uiActions.SHOW_LOADING(false));
     } catch (error) {
       console.log(error);
-      dispatch(uiActions.showLoading(false));
+      dispatch(uiActions.SHOW_LOADING(false));
     }
   };
 };
 
-export const replaceNotesData = (newNotes) => {
+export const deleteNote = (id) => {
   return async (dispatch) => {
-    dispatch(uiActions.showLoading(true));
+    dispatch(uiActions.SHOW_LOADING(true));
 
-    const replaceData = async () => {
-      const response = await apiUpdateNotes(newNotes);
+    const deleteData = async () => {
+      const response = await apiDeleteNote(id);
       if (response.status !== 200) {
-        throw new Error('Replacing note data failed.');
+        throw new Error('Deleting note data failed.');
       }
     };
 
     try {
-      await replaceData();
-      await dispatch(fetchNotesData());
-      dispatch(uiActions.showLoading(false));
+      await deleteData();
+      await dispatch(setNotes());
+      dispatch(uiActions.SHOW_LOADING(false));
     } catch (error) {
       console.log(error);
-      dispatch(uiActions.showLoading(false));
+      dispatch(uiActions.SHOW_LOADING(false));
+    }
+  };
+};
+
+export const editNote = (id, data) => {
+  return async (dispatch) => {
+    dispatch(uiActions.SHOW_LOADING(true));
+
+    const editData = async () => {
+      const response = await apiPatchNote(id, data);
+      console.log(response);
+      if (response.status !== 200) {
+        throw new Error('Editing note data failed.');
+      }
+    };
+
+    try {
+      await editData();
+      await dispatch(setNotes());
+      dispatch(uiActions.SHOW_LOADING(false));
+    } catch (error) {
+      console.log(error);
+      dispatch(uiActions.SHOW_LOADING(false));
     }
   };
 };
