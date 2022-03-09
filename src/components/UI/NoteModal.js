@@ -8,11 +8,9 @@ import EditingNote from '../notes/EditingNote';
 import Backdrop from './Backdrop';
 
 const StyledModalOverlay = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
+  position: fixed;
+  bottom: 50%;
+  transform: translateY(50%);
 `;
 
 const ModalOverlay = ({ id, title, description, date }) => {

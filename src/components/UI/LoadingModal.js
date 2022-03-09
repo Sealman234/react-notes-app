@@ -6,10 +6,10 @@ import Backdrop from './Backdrop';
 import LoadingSpinner from './LoadingSpinner';
 
 const StyledSpinnerOverlay = styled.div`
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  bottom: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(50%);
 `;
 
 const SpinnerOverlay = () => {
