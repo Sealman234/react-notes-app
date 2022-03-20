@@ -11,8 +11,7 @@ const StyledEditingNote = styled.div`
   width: calc(100% - 32px);
   max-width: 600px;
   margin: 16px auto;
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
+  background-color: #fff375;
   border-radius: 10px;
   box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
   padding: 0.5rem 1rem 1rem 1rem;

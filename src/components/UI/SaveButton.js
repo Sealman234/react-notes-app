@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background-color: #e1e1e1;
+  background-color: rgba(0, 0, 0, 0.18);
   border: none;
   border-radius: 15px;
   padding: 5px 10px;
 
   &:hover {
-    background-color: #ededed;
+    background-color: rgba(0, 0, 0, 0.08);
     cursor: pointer;
   }
 `;

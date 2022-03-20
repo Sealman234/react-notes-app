@@ -10,9 +10,9 @@ const SearchBar = styled.div`
   display: flex;
   align-items: center;
   background-color: rgb(233, 233, 233);
-  border-radius: 10px;
-  padding: 0 10px;
-  margin-right: 10px;
+  border-radius: 0.625rem;
+  padding: 0 0.625rem;
+  margin-right: 1rem;
 
   input {
     width: 100%;
@@ -44,7 +44,7 @@ const Search = () => {
       <SearchIcon size="1.6rem" title="Search" />
       <input
         type="text"
-        placeholder="type to search..."
+        placeholder="Search..."
         value={searchInput}
         onChange={noteSearchHandler}
       />

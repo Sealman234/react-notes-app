@@ -8,6 +8,7 @@ import EditingNote from '../notes/EditingNote';
 import Backdrop from './Backdrop';
 
 const StyledModalOverlay = styled.div`
+  width: 100%;
   position: fixed;
   bottom: 50%;
   transform: translateY(50%);

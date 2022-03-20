@@ -11,6 +11,7 @@ const Textarea = styled.textarea`
   font-weight: ${(props) => props.type === 'title' && 'bold'};
   border: none;
   resize: none;
+  background-color: transparent;
 
   &:focus {
     outline: none;

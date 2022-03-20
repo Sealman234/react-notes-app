@@ -1,22 +1,17 @@
 # React Notes App
 
+一直以來非常愛用 Google Keep 紀錄生活大小事，因此也想透過 React 與 Firebase 實作自己的 Notes App。
+
 ## Features
 
-- [x] Show notes in multi-column view (Grid View)
-- [x] Adding new notes
-- [x] Note character count
-- [x] Deleting a note
-- [x] Searching for a note
-- [x] Toggling dark mode
-- [x] Saving dark mode to local storage
-- [x] Firebase Realtime Database
-- [x] Handling errors
-- [x] Show loading modal with Portals
-- [x] Editing a note
-- [ ] Notes can be categorized using labels
-- [ ] Pinning notes
-- [ ] Draggable notes
-- [x] Upload production code to server
+- [x] 新增筆記
+- [x] 關鍵字搜尋筆記
+- [x] 編輯筆記
+- [x] 刪除筆記
+- [x] 一鍵切換淺色與深色背景
+- [ ] 釘選筆記
+- [ ] 以標籤分類筆記
+- [ ] 拖移更改筆記排序
 
 ## Tech Stack
 

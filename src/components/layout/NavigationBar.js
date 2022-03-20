@@ -7,7 +7,7 @@ import ToggleMode from '../header/ToggleMode';
 const Header = styled.header`
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 0.5rem 1rem;
   box-shadow: inset 0 -1px 0 0 #dadce0;
 `;
 
@@ -16,12 +16,12 @@ const Logo = styled.img`
 `;
 
 const SiteName = styled.h1`
-  font-size: 1.375rem;
+  font-size: 1.5rem;
   line-height: 1.5rem;
   font-weight: normal;
   color: #5f6368;
   margin: 0;
-  padding: 0 10px;
+  padding: 0 1rem;
 `;
 
 const NavigationBar = ({ onToggleDarkMode }) => {
@@ -31,7 +31,7 @@ const NavigationBar = ({ onToggleDarkMode }) => {
         src="https://seeklogo.com/images/G/google-keep-logo-0BC92EBBBD-seeklogo.com.png"
         alt="logo"
       />
-      <SiteName>Keep</SiteName>
+      <SiteName>Note</SiteName>
       <Search />
       <ToggleMode onToggleDarkMode={onToggleDarkMode} />
     </Header>

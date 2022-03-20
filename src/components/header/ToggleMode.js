@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const Button = styled.button`
   background-color: #e1e1e1;
   border: none;
-  border-radius: 15px;
-  padding: 5px 10px;
+  border-radius: 0.9375rem;
+  padding: 0.3125rem 0.625rem;
   white-space: nowrap;
 
   &:hover {

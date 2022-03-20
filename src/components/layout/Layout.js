@@ -8,7 +8,7 @@ import NavigationBar from './NavigationBar';
 const Container = styled.main`
   max-width: 960px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 1rem;
 `;
 
 const DarkMode = styled.div`
