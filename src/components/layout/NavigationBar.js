@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
 import Search from '../header/Search';
@@ -24,17 +24,22 @@ const SiteName = styled.h1`
   padding: 0 1rem;
 `;
 
-const NavigationBar = ({ onToggleDarkMode }) => {
+const NavigationBar = ({ onToggleDarkMode, isDarkMode }) => {
   return (
-    <Header>
-      <Logo
-        src="https://seeklogo.com/images/G/google-keep-logo-0BC92EBBBD-seeklogo.com.png"
-        alt="logo"
-      />
-      <SiteName>Note</SiteName>
-      <Search />
-      <ToggleMode onToggleDarkMode={onToggleDarkMode} />
-    </Header>
+    <Fragment>
+      <Header>
+        <Logo
+          src="https://seeklogo.com/images/G/google-keep-logo-0BC92EBBBD-seeklogo.com.png"
+          alt="logo"
+        />
+        <SiteName>Note</SiteName>
+        <Search />
+        <ToggleMode
+          onToggleDarkMode={onToggleDarkMode}
+          isDarkMode={isDarkMode}
+        />
+      </Header>
+    </Fragment>
   );
 };
 

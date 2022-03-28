@@ -14,8 +14,12 @@ const Button = styled.button`
   }
 `;
 
-const ToggleMode = ({ onToggleDarkMode }) => {
-  return <Button onClick={onToggleDarkMode}>Toggle Mode</Button>;
+const ToggleMode = ({ onToggleDarkMode, isDarkMode }) => {
+  return (
+    <Button onClick={onToggleDarkMode}>
+      {isDarkMode ? 'Toggle Day Mode' : 'Toggle Dark Mode'}
+    </Button>
+  );
 };
 
 export default ToggleMode;

@@ -48,7 +48,10 @@ const Layout = (props) => {
     <Fragment>
       <DarkMode className={darkMode && 'dark-mode'}>
         {selectLoading && <LoadingModal />}
-        <NavigationBar onToggleDarkMode={toggleDarkModeHandler} />
+        <NavigationBar
+          onToggleDarkMode={toggleDarkModeHandler}
+          isDarkMode={darkMode}
+        />
         <Container>{props.children}</Container>
       </DarkMode>
     </Fragment>
