@@ -5,7 +5,7 @@ import { MdDeleteForever } from 'react-icons/md';
 
 import { deleteNote } from '../../store/note-actions';
 
-const StyledNote = styled.div`
+const StyledNote = styled.li`
   background-color: #fff375;
   border-radius: 10px;
   padding: 1rem;

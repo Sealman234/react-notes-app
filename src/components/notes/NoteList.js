@@ -3,7 +3,10 @@ import styled from 'styled-components';
 
 import Note from './Note';
 
-const List = styled.div`
+const List = styled.ul`
+  padding: 0;
+  margin: 0;
+  list-style: none;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
